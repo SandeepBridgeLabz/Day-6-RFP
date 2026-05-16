@@ -4,7 +4,7 @@ public class Stopwatch {
 
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
+        Scanner sc  = new Scanner(System.in);
 
         System.out.println("Press Enter to Start");
         sc.nextLine();

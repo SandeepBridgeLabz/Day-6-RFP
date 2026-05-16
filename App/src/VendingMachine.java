@@ -1,35 +1,23 @@
 import java.util.Scanner;
 
-public class VendingMachine {
-
-    static int[] notes = {1000, 500, 100, 50, 10, 5, 2, 1};
-
-    public static void calculate(int amount) {
-
-        int count = 0;
-
-        for(int note : notes) {
-
-            if(amount >= note) {
-
-                int num = amount / note;
-                amount = amount % note;
-
-                count += num;
-
-                System.out.println(note + " : " + num);
-            }
-        }
-
-        System.out.println("Minimum Notes: " + count);
-    }
+public class DayOfWeek {
 
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
 
-        int amount = sc.nextInt();
+        int m = sc.nextInt();
+        int d = sc.nextInt();
+        int y = sc.nextInt();
 
-        calculate(amount);
+        int y0 = y - (14 - m) / 12;
+
+        int x = y0 + y0/4 - y0/100 + y0/400;
+
+        int m0 = m + 12 * ((14 - m) / 12) - 2;
+
+        int d0 = (d + x + (31 * m0) / 12) % 7;
+
+        System.out.println("Day of week: " + d0);
     }
 }
